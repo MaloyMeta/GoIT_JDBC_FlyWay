@@ -9,11 +9,12 @@ public class Database {
 
     private Database(){
         try {
-            String url = "jdbc:h2:~/goit_test";
-            String login = "root";
-            String password = "12345";
 
-            this.connection = DriverManager.getConnection(url,login,password);
+            final String url = "jdbc:h2:~/goit_test";
+            final String login = "root";
+            final String password = "12345";
+
+            this.connection = DriverManager.getConnection(url, login, password);
             System.out.println("Connection succesful");
 
         }catch (SQLException e){

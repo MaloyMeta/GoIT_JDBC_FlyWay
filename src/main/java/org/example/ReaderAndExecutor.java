@@ -8,14 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ReaderAndExecutor {
-    public static StringBuilder readFile(String sqlPathQuery) throws IOException {
-        StringBuilder sqlQuery = new StringBuilder();
+    public static String readFile(String sqlPathQuery) throws IOException {
+        String sqlQuery = "";
         try{
             BufferedReader bf = new BufferedReader(new FileReader(sqlPathQuery));
             String line;
             while ((line = bf.readLine()) != null){
-                sqlQuery.append(line);
-                sqlQuery.append(" ");
+                sqlQuery += line + " ";
             }
 
         }catch (IOException e){
@@ -25,13 +24,9 @@ public class ReaderAndExecutor {
     }
 
     public static void executeSqlQuery(String sqlQuery) throws SQLException {
-        try{
             Connection conn = Database.getInstance().getConnection();
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sqlQuery);
             System.out.println("Sql Query was succsesful!");
-        }catch (SQLException e){
-            System.out.println("Error while execute sql Query: " + e.getMessage());
-        }
     }
 }

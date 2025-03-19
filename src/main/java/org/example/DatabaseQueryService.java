@@ -15,9 +15,9 @@ public class DatabaseQueryService {
 
     public List<LongestProject> findLongestProject() throws IOException, SQLException {
         List<LongestProject> result = new ArrayList<>();
-        StringBuilder sql = ReaderAndExecutor.readFile(findLongestProjectPATH);
+        String sql = ReaderAndExecutor.readFile(findLongestProjectPATH);
         Connection conn = Database.getInstance().getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql.toString());
+        PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
@@ -28,9 +28,9 @@ public class DatabaseQueryService {
 
     public List<MaxProjectsClient> findMaxProjectsClient() throws IOException, SQLException {
         List<MaxProjectsClient> result = new ArrayList<>();
-        StringBuilder sql = ReaderAndExecutor.readFile(findMaxProjectsClientPATH);
+        String sql = ReaderAndExecutor.readFile(findMaxProjectsClientPATH);
         Connection conn = Database.getInstance().getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql.toString());
+        PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
@@ -41,9 +41,9 @@ public class DatabaseQueryService {
 
     public List<MaxSalaryWorker> findMaxSalaryWorker() throws IOException, SQLException {
         List<MaxSalaryWorker> result = new ArrayList<>();
-        StringBuilder sql = ReaderAndExecutor.readFile(findMaxSalaryWorkerPATH);
+        String sql = ReaderAndExecutor.readFile(findMaxSalaryWorkerPATH);
         Connection conn = Database.getInstance().getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql.toString());
+        PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
@@ -54,9 +54,9 @@ public class DatabaseQueryService {
 
     public List<YoungestEldestWorkers> findYoungestEldestWorkers() throws IOException, SQLException {
         List<YoungestEldestWorkers> result = new ArrayList<>();
-        StringBuilder sql = ReaderAndExecutor.readFile(findYoungestEldestWorkersPATH);
+        String sql = ReaderAndExecutor.readFile(findYoungestEldestWorkersPATH);
         Connection conn = Database.getInstance().getConnection();
-        PreparedStatement stmt = conn.prepareStatement(sql.toString());
+        PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
