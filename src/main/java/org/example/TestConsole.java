@@ -10,15 +10,15 @@ public class TestConsole {
         DatabaseQueryService service = new DatabaseQueryService();
 
         try {
-            List<DatabaseQueryService.LongestProject> projects0 = service.findLongestProject();
-            List<DatabaseQueryService.MaxProjectsClient> projects1 = service.findMaxProjectsClient();
-            List<DatabaseQueryService.MaxSalaryWorker> projects2 = service.findMaxSalaryWorker();
-            List<DatabaseQueryService.YoungestEldestWorkers> projects3 = service.findYoungestEldestWorkers();
+            List<LongestProject> projects0 = service.findLongestProject();
+            List<MaxProjectsClient> projects1 = service.findMaxProjectsClient();
+            List<MaxSalaryWorker> projects2 = service.findMaxSalaryWorker();
+            List<YoungestEldestWorkers> projects3 = service.findYoungestEldestWorkers();
 
             if (projects0.isEmpty()) {
                 System.out.println("Нет данных о самых длительных проектах.");
             } else {
-                for (DatabaseQueryService.LongestProject project : projects0) {
+                for (LongestProject project : projects0) {
                     System.out.println("ID: " + project.getId() + ", : " + project.getMonths() + " months");
                 }
             }
@@ -26,7 +26,7 @@ public class TestConsole {
             if (projects1.isEmpty()) {
                 System.out.println("Нет данных о самых длительных проектах.");
             } else {
-                for (DatabaseQueryService.MaxProjectsClient project : projects1) {
+                for (MaxProjectsClient project : projects1) {
                     System.out.println("NAME: " + project.getName() + ", : " + project.getProject_count() + " projects");
                 }
             }
@@ -34,7 +34,7 @@ public class TestConsole {
             if (projects2.isEmpty()) {
                 System.out.println("Нет данных о самых длительных проектах.");
             } else {
-                for (DatabaseQueryService.MaxSalaryWorker project : projects2) {
+                for (MaxSalaryWorker project : projects2) {
                     System.out.println("NAME: " + project.getName() + ", : " + project.getSalary() + " salary");
                 }
             }
@@ -42,7 +42,7 @@ public class TestConsole {
             if (projects3.isEmpty()) {
                 System.out.println("Нет данных о самых длительных проектах.");
             } else {
-                for (DatabaseQueryService.YoungestEldestWorkers project : projects3) {
+                for (YoungestEldestWorkers project : projects3) {
                     System.out.println("TYPE: " + project.getType() + ", NAME: " + project.getName()+ " " + project.getDate() + " Date");
                 }
             }

@@ -9,18 +9,18 @@ import java.sql.Statement;
 
 public class ReaderAndExecutor {
     public static String readFile(String sqlPathQuery) throws IOException {
-        String sqlQuery = "";
+        StringBuilder sqlQuery = new StringBuilder();
         try{
             BufferedReader bf = new BufferedReader(new FileReader(sqlPathQuery));
             String line;
             while ((line = bf.readLine()) != null){
-                sqlQuery += line + " ";
+                sqlQuery.append(line + " ");
             }
 
         }catch (IOException e){
             System.out.println("Error while read file: " + e.getMessage());
         }
-        return sqlQuery;
+        return sqlQuery.toString();
     }
 
     public static void executeSqlQuery(String sqlQuery) throws SQLException {
