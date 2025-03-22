@@ -16,6 +16,7 @@ public class ReaderAndExecutor {
             while ((line = bf.readLine()) != null){
                 sqlQuery.append(line + " ");
             }
+            bf.close();
 
         }catch (IOException e){
             System.out.println("Error while read file: " + e.getMessage());
