@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ReaderAndExecutor {
-    public static String readFile(String sqlPathQuery) throws IOException {
+    public static String readFile(String sqlPathQuery) {
         StringBuilder sqlQuery = new StringBuilder();
         try{
             BufferedReader bf = new BufferedReader(new FileReader(sqlPathQuery));
