@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.*;
 
 public interface ClientDao {
-
     long create(String name) throws SQLException;
 
     String getById(long id) throws SQLException;
@@ -14,6 +13,5 @@ public interface ClientDao {
     void deleteById(long id) throws SQLException;
 
     List<Client> listAll() throws SQLException;
-
 }
 

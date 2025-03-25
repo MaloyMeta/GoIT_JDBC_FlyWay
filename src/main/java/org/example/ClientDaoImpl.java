@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 
 class ClientDaoImpl implements ClientDao {
     private final Connection connection;
+    private static final String NAME_CONST = "NAME";
 
     public ClientDaoImpl() throws SQLException {
         this.connection = Database.getInstance().getConnection();
@@ -34,7 +35,7 @@ class ClientDaoImpl implements ClientDao {
             stmt.setLong(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getString("NAME");
+                    return rs.getString(NAME_CONST);
                 }
             }
             throw new NoSuchElementException("Клієнта з ID: " + id + " немає");
@@ -71,7 +72,7 @@ class ClientDaoImpl implements ClientDao {
         try (PreparedStatement stmt = connection.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                clients.add(new Client(rs.getLong("ID"), rs.getString("NAME")));
+                clients.add(new Client(rs.getLong("ID"), rs.getString(NAME_CONST)));
             }
         }
         return clients;
